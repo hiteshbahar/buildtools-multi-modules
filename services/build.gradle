@@ -1,0 +1,11 @@
+
+group = 'com.epam.services'
+description = 'services'
+version = '0.0.1'
+
+dependencies {
+    implementation project(':utils')
+}
+
+jar.enabled = true
+

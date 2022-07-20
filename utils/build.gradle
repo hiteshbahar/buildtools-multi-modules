@@ -1,0 +1,6 @@
+group = 'com.epam.utils'
+description = 'utils'
+version = '0.0.1'
+
+jar.enabled=true
+

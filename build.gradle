@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+}
+
+subprojects {
+    apply plugin: 'java'
+}
+
+allprojects {
+    // Add Java Source Compatibility
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    repositories {
+        mavenCentral()
+        mavenLocal()
+    }
+
+    dependencies {
+        testImplementation 'junit:junit:4.13.2'
+    }
+
+    test {
+        useJUnit()
+    }
+
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+    }
+}

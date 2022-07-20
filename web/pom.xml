@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0  http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <properties>
+        <servlet-api.version>2.5</servlet-api.version>
+        <cargo-maven3-plugin.version>1.9.13</cargo-maven3-plugin.version>
+    </properties>
+
+
+    <!-- Parent  Pom  -->
+    <parent>
+        <groupId>com.epam.buildtools.builders</groupId>
+        <artifactId>buildtools-multi-modules</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <!--    Web Pom-->
+    <groupId>com.epam.web</groupId>
+    <artifactId>web</artifactId>
+    <version>1.0.0</version>
+    <packaging>war</packaging>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>com.epam.services</groupId>
+            <artifactId>services</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>${servlet-api.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>maven-generate-war</finalName>
+        <plugins>
+            <!--            <plugin>-->
+            <!--                <groupId>org.apache.tomcat.maven</groupId>-->
+            <!--                <artifactId>tomcat7-maven-plugin</artifactId>-->
+            <!--                <version>2.2</version>-->
+            <!--                <configuration>-->
+            <!--            <url>http://localhost:8888/manager/text</url>-->
+            <!--            <server>maven-tomcat-war-deployment-server</server>-->
+            <!--            <path>/hello</path>-->
+            <!--                </configuration>-->
+            <!--            </plugin>-->
+            <plugin>
+                <groupId>org.codehaus.cargo</groupId>
+                <artifactId>cargo-maven3-plugin</artifactId>
+                <version>${cargo-maven3-plugin.version}</version>
+                <configuration>
+                    <container>
+                        <containerId>tomcat9x</containerId>
+                        <type>remote</type>
+                    </container>
+                    <configuration>
+                        <type>runtime</type>
+                        <properties>
+                            <cargo.remote.username>war-deployer</cargo.remote.username>
+                            <cargo.remote.password>maven-tomcat</cargo.remote.password>
+                            <cargo.servlet.port>8888</cargo.servlet.port>
+                            <cargo.tomcat.manager.url>http://localhost:8888/manager/text</cargo.tomcat.manager.url>
+                        </properties>
+                    </configuration>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

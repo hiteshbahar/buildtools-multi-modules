@@ -1,0 +1,11 @@
+group = 'com.epam.web'
+description = 'web'
+version = '1.0.0'
+
+dependencies {
+    implementation project(':services')
+    implementation project(':utils')
+    compileOnly  'javax.servlet:servlet-api:2.5'
+}
+
+
