@@ -8,6 +8,7 @@ Maven
 2. Run Unit tests
    1. Parent Project: run command `mvn test`
    2. For child projects such as admin/web, please navigate into their respective repo and run the above command.
+3. To Deploy the application to Tomcat via Cargo containers run command `mvn cargo:deploy` and to undeploy `mvn cargo:undeploy`
 
 Gradle: 
 1. Build Project

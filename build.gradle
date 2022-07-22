@@ -17,7 +17,7 @@ allprojects {
     }
 
     dependencies {
-        testImplementation 'junit:junit:4.13.2'
+        testImplementation "junit:junit:${gradle.junit}"
     }
 
     test {

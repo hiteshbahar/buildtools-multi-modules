@@ -3,3 +3,8 @@ include 'web'
 include 'utils'
 include 'services'
 include 'admin'
+
+
+gradle.ext{
+    junit='4.13'
+}
