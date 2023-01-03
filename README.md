@@ -19,3 +19,5 @@ Gradle:
 2. Run unit tests
    1. Parent Project: `gradle test` or if graldew is installed `.\gradlew test` for windows and `./gradlew test` for mac/linux
    2. Child Projects: `Admin` or `Web` please navigate to respective modules are run the above gradle test command.
+
+This is a smaple test
